@@ -18,9 +18,36 @@
         <p>Your Library</p>
     </header>
     <main>
+
+        <div id="modal">
+            <form id="modal-content" action="">
+                <h1 class="form-title">Enter Your Book's Details</h1>
+                <span class="close">&#10060;</span>
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="title">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" class="author">
+                </div>
+                <div>
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" class="pages" min="0">
+                </div>
+                <div>
+                    <label for="read">Read Status</label>
+                    <input type="checkbox" name="read" class="read">
+                </div>
+                <button>Add Book</button>
+
+            </form>
+        </div>
+
         <div id="button-area">
             <button id="addBook" value="addBook">+ Add Book</button>
         </div>
+
         <div id="books-area">
             <div class="book"></div>
             <div class="book"></div>
