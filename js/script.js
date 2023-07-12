@@ -71,9 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 )
             );
 
-            console.log(myLibrary);
+            modal.style.display = "none";
+            displayBooks();
         });
 
+    // Closing the modal
     document.getElementById("close-modal").addEventListener("click", () => {
         modal.style.display = "none";
     });
@@ -82,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = "none";
         }
     };
+
     displayBooks();
 });
 
