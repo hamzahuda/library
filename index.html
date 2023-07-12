@@ -22,24 +22,24 @@
         <div id="modal">
             <form id="modal-content" action="">
                 <h1 class="form-title">Enter Your Book's Details</h1>
-                <span class="close">&#10060;</span>
+                <span id="close-modal">&#10060;</span>
                 <div>
-                    <label for="title">Title</label>
-                    <input type="text" name="title" class="title">
+                    <label for="newTitle">Title</label>
+                    <input type="text" id="newTitle" name="title" class="title">
                 </div>
                 <div>
-                    <label for="author">Author</label>
-                    <input type="text" name="author" class="author">
+                    <label for="newAuthor">Author</label>
+                    <input type="text" id="newAuthor" name="author" class="author">
                 </div>
                 <div>
-                    <label for="pages">Pages</label>
-                    <input type="number" name="pages" class="pages" min="0">
+                    <label for="newPages">Pages</label>
+                    <input type="number" id="newPages" name="pages" class="pages" min="0">
                 </div>
                 <div>
-                    <label for="read">Read Status</label>
-                    <input type="checkbox" name="read" class="read">
+                    <label for="newRead">Read Status</label>
+                    <input type="checkbox" id="newRead" name="read" class="read">
                 </div>
-                <button type="submit">Add Book</button>
+                <button id="confirmBook" type="submit">Add Book</button>
             </form>
         </div>
 

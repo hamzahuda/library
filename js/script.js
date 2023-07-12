@@ -20,20 +20,6 @@ let myLibrary = [
     ),
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-    // New Book Button
-    document.getElementById("addBook").addEventListener("click", () => {
-        console.log("pressed");
-    });
-
-    displayBooks();
-});
-
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-    displayBooks();
-}
-
 function displayBooks() {
     booksArea = document.getElementById("books-area");
     booksArea.innerHTML = "";
@@ -59,4 +45,47 @@ function displayBooks() {
 
         booksArea.appendChild(curBook);
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Add Book Form
+
+    // Open the modal when the button is clicked
+    const modal = document.getElementById("modal");
+    document.getElementById("addBook").addEventListener("click", () => {
+        modal.style.display = "block";
+    });
+
+    // Adding the book to the array
+    document
+        .getElementById("confirmBook")
+        .addEventListener("click", (event) => {
+            event.preventDefault();
+
+            myLibrary.push(
+                new Book(
+                    document.getElementById("newTitle").value,
+                    document.getElementById("newAuthor").value,
+                    parseInt(document.getElementById("newPages").value),
+                    document.getElementById("newRead").checked
+                )
+            );
+
+            console.log(myLibrary);
+        });
+
+    document.getElementById("close-modal").addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    window.onclick = (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+    displayBooks();
+});
+
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+    displayBooks();
 }
