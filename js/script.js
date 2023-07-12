@@ -5,6 +5,11 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleReadStatus = function () {
+    this.read = !this.read;
+    displayBooks();
+};
+
 let myLibrary = [
     new Book(
         "Harry Potter and the Philosopher's Stone",
@@ -23,7 +28,7 @@ let myLibrary = [
 function displayBooks() {
     booksArea = document.getElementById("books-area");
     booksArea.innerHTML = "";
-    myLibrary.forEach((book) => {
+    for (let [i, book] of myLibrary.entries()) {
         const curBook = document.createElement("div");
         curBook.classList.add("book");
 
@@ -31,15 +36,18 @@ function displayBooks() {
         const author = document.createElement("div");
         const pages = document.createElement("div");
         const read = document.createElement("div");
+        const remove = document.createElement("div");
 
         title.classList.add("title");
         author.classList.add("author");
         pages.classList.add("pages");
         read.classList.add("read");
+        remove.classList.add("remove");
 
         title.textContent = `"${book.title}"`;
         author.textContent = `- ${book.author}`;
         pages.textContent = `${book.pages} pages`;
+        remove.textContent = "REMOVE";
 
         curBook.appendChild(title);
         curBook.appendChild(author);
@@ -52,10 +60,18 @@ function displayBooks() {
             curBook.style.backgroundColor = "#e72c2c";
             read.textContent = "UNREAD";
         }
+        read.addEventListener("click", () => {
+            book.toggleReadStatus();
+        });
         curBook.appendChild(read);
 
+        remove.addEventListener("click", () => {
+            removeBookFromLibrary(i);
+        });
+        curBook.appendChild(remove);
+
         booksArea.appendChild(curBook);
-    });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -96,8 +112,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Toggle read status button
+
     displayBooks();
 });
+
+function removeBookFromLibrary(index) {
+    myLibrary.splice(index, 1);
+    displayBooks();
+}
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
