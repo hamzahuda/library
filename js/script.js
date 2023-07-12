@@ -30,18 +30,29 @@ function displayBooks() {
         const title = document.createElement("div");
         const author = document.createElement("div");
         const pages = document.createElement("div");
+        const read = document.createElement("div");
 
         title.classList.add("title");
         author.classList.add("author");
         pages.classList.add("pages");
+        read.classList.add("read");
 
-        title.textContent = book.title;
-        author.textContent = book.author;
-        pages.textContent = book.pages;
+        title.textContent = `"${book.title}"`;
+        author.textContent = `- ${book.author}`;
+        pages.textContent = `${book.pages} pages`;
 
         curBook.appendChild(title);
         curBook.appendChild(author);
         curBook.appendChild(pages);
+
+        if (book.read) {
+            curBook.style.backgroundColor = "#9eef52";
+            read.textContent = "READ";
+        } else {
+            curBook.style.backgroundColor = "#e72c2c";
+            read.textContent = "UNREAD";
+        }
+        curBook.appendChild(read);
 
         booksArea.appendChild(curBook);
     });
