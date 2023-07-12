@@ -74,8 +74,7 @@ main {
 .close {
     justify-self: right;
     align-self: top;
-    margin-top: -20px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .close:hover {
@@ -98,10 +97,20 @@ main {
     align-items: center;
     gap: 1rem;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     width: 20rem; /* Could be more or less, depending on screen size */
 }
 
-.form-title {
+#modal-content > button {
+    width: 150px;
+    height: 40px;
+    justify-self: center;
+    border-radius: 10px;
+    border-style: none;
+}
+
+#modal-content > button:hover {
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
 }
